@@ -1,6 +1,85 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-    <section class="section section-home" id="0">
+<section class="active" data-section="0">
+    <div class="section-main">
+        <div class="section-main-image">
+            <div class="row" style="margin-right: 0px;">
+                <div class="col"></div>
+                <div class="col section-main-message">
+                    <h1>The Fun Never Stop</h1>
+                </div>
+                <div class="col"></div>
+            </div>
+        </div>
+        <div id="ourStory" style="display:none;">
+            <div class="row" style="margin-right: 0px;">
+                <div class="col"></div>
+                <div class="col-6 section-main-sub-message">
+                    <h2>Our Product</h2>
+                    <p>A short story is a piece of prose fiction that typically can be read in one sitting and focuses on a self-contained incident or series of linked incidents, with the intent of evoking</p>
+                </div>
+                <div class="col"></div>
+            </div>
+        </div>
 
-    </section>
+    </div>
+</section>
+<section data-section="1">
+    <h2>Hello! I'm the second section!</h2>
+</section>
+<section data-section="2">
+    <h2>Hello! I'm the third section!</h2>
+</section>
+
+<script type="text/javascript">
+    let sections = document.getElementsByTagName('section');
+    // tracks index of current section
+    let currentSectionIndex = 0;
+
+    document.addEventListener('wheel', e => {
+        /*
+        if (e.wheelDeltaY > 0 && currentSectionIndex - 1 >= 0) {
+            // wheel up
+            $(".section-main-image").animate({ top: '0px', opacity: '0.5' }, 1000);
+            currentSectionIndex--;
+            if (currentSectionIndex == 0) {
+                $("#section-main-image").slideUp("slow");
+            }
+            else {
+                sections[currentSectionIndex].className = '';
+                currentSectionIndex--;
+                sections[currentSectionIndex].className = 'active';
+            }
+
+    } else if (e.wheelDeltaY < 0 && currentSectionIndex + 1 < sections.length) {
+        // wheel down
+        $(".section-main-image").animate({ bottom: '100vh', opacity: '0' }, 1000);
+        //sections[currentSectionIndex].className = '';
+        currentSectionIndex++;
+        //sections[currentSectionIndex].className = 'active';
+    }
+         */
+
+        if (e.wheelDeltaY > 0) {
+            // wheel up
+            $(".section-main-image").animate({ bottom: '0vh', opacity: '1' }, 1000);
+            $("#ourStory").fadeOut(1000);
+            /*if (currentSectionIndex == 0) {
+                $("#section-main-image").slideUp("slow");
+            }
+            else {
+                sections[currentSectionIndex].className = '';
+                currentSectionIndex--;
+                sections[currentSectionIndex].className = 'active';
+            }*/
+            
+        } else if (e.wheelDeltaY < 0) {
+            // wheel down
+            $(".section-main-image").animate({ bottom: '100vh', opacity: '0' }, 1000);
+            $("#ourStory").fadeIn(1000);
+            //sections[currentSectionIndex].className = '';
+            //sections[currentSectionIndex].className = 'active';
+        }
+    });
+</script>

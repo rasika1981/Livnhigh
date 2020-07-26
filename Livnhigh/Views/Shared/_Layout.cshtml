@@ -9,31 +9,36 @@
     <link rel="stylesheet" href="~/lib/menu/style.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha384-vk5WoKIaW/vJyUAd9n/wmopsmNhiy+L2Z+SBxGYnUkunIxVxAv/UtMOhba/xskxh" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
-    <header class="navigation">
-        <span class="menu-icon" onclick="openNav()">&#9776;</span>
-        <div id="myNav" class="overlay">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <div class="overlay-content">
-                <a href="https://localhost:44321/">About</a>
-                <a href="#">Services</a>
-                <a href="#">Clients</a>
-                <a href="#">Contact</a>
+    <header class="header">        
+        <div class="row">
+            <div class="col">
+                <span class="menu-icon" onclick="openNav()">&#9776;</span>
+                <div id="myNav" class="overlay">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    <div class="overlay-content">
+                        <a href="https://localhost:44321/">About</a>
+                        <a href="#">Services</a>
+                        <a href="#">Clients</a>
+                        <a href="#">Contact</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col company-logo">
+                <img src="~/images/logo.png" />
+            </div>
+            <div class="col social-media">
+                <span class="social-media-msg">follow us</span>
+                <a href="https://www.facebook.com/drinklivnhigh">
+                    <img src="~/images/facebook_icon34.png" class="facebookIcon" />
+                </a>
+                <a href="https://www.instagram.com/drinklivnhigh" class="instagramIcon">
+                    <img src="~/images/instagram_icon34.png" />
+                </a>
             </div>
         </div>
-        <span class="company-logo">
-            <img src="~/images/logo.png" />
-        </span>
-        <span class="social-media">
-            <span class="social-media-msg">follow us</span>
-            <a href="https://www.facebook.com/drinklivnhigh">
-                <img src="~/images/facebook_icon34.png" class="facebookIcon" />
-            </a>
-            <a href="https://www.instagram.com/drinklivnhigh" class="instagramIcon">
-                <img src="~/images/instagram_icon34.png" />
-            </a>
-        </span>
     </header>
     <script>
         function openNav() {
