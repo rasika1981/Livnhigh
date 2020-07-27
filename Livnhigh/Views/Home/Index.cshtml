@@ -79,53 +79,6 @@
     // tracks index of current section
     let currentSectionIndex = 0;
 
-    $(document).ready(function () {
-        $("document").one("wheel", function () {
-            if (e.wheelDeltaY > 0) {
-                // wheel up
-                if (currentSectionIndex == 1) {
-                    $("#vodkaRaspberry").animate({ bottom: '100vh', opacity: '1' }, 1500);
-                    $(".section-main-image").animate({ bottom: '0vh', opacity: '1' }, 1500);
-                    $("#ourStory").fadeOut(1000);
-                    currentSectionIndex--;
-                }
-                else if (currentSectionIndex == 2) {
-                    document.getElementById("vodkaRaspberry").style.display = "none";
-                    $("#ourStory").fadeIn(1000);
-                    currentSectionIndex--;
-                }
-
-                /*if (currentSectionIndex == 0) {
-                    $("#section-main-image").slideUp("slow");
-                }
-                else {
-                    sections[currentSectionIndex].className = '';
-                    currentSectionIndex--;
-                    sections[currentSectionIndex].className = 'active';
-                }*/
-
-            } else if (e.wheelDeltaY < 0) {
-                // wheel down
-                if (currentSectionIndex == 0) {
-                    $(".section-main-image").animate({ bottom: '100vh', opacity: '0' }, 1500);
-                    $("#ourStory").fadeIn(1000);
-                    currentSectionIndex++;
-                }
-                else if (currentSectionIndex == 1) {
-                    $("#ourStory").fadeOut(1500, function () {
-                        document.getElementById("vodkaRaspberry").style.display = "block";
-                        $("#vodkaRaspberry").animate({ top: '0vh', opacity: '1' }, 1500);
-                    });
-                    //$("#vodkaRaspberry").animate({ top: '0vh', display: 'block'}, 1500);
-                    currentSectionIndex++;
-                }
-
-                //sections[currentSectionIndex].className = '';
-                //sections[currentSectionIndex].className = 'active';
-            }
-        });
-    });
-
     document.addEventListener('wheel', e => {
         /*
         if (e.wheelDeltaY > 0 && currentSectionIndex - 1 >= 0) {
@@ -153,14 +106,14 @@
         if (e.wheelDeltaY > 0) {
             // wheel up
             if (currentSectionIndex == 1) {
-                $("#vodkaRaspberry").animate({ bottom: '100vh', opacity: '1' }, 1500);
-                $(".section-main-image").animate({ bottom: '0vh', opacity: '1' }, 1500);
-                $("#ourStory").fadeOut(1000);
+                $("#vodkaRaspberry").stop(true, false).animate({ bottom: '100vh', opacity: '1' }, 1500);
+                $(".section-main-image").stop(true, false).animate({ bottom: '0vh', opacity: '1' }, 1500);
+                $("#ourStory").stop(true, false).fadeOut(1000);
                 currentSectionIndex--;
             }
             else if (currentSectionIndex == 2) {
                 document.getElementById("vodkaRaspberry").style.display = "none";
-                $("#ourStory").fadeIn(1000);
+                $("#ourStory").stop(true, false).fadeIn(1000);
                 currentSectionIndex--;
             }
             
@@ -176,14 +129,14 @@
         } else if (e.wheelDeltaY < 0) {
             // wheel down
             if (currentSectionIndex == 0) {
-                $(".section-main-image").animate({ bottom: '100vh', opacity: '0' }, 1500);
-                $("#ourStory").fadeIn(1000);
+                $(".section-main-image").stop(true, false).animate({ bottom: '100vh', opacity: '0' }, 1500);
+                $("#ourStory").stop(true, false).fadeIn(1000);
                 currentSectionIndex++;
             }
             else if (currentSectionIndex == 1) {
-                $("#ourStory").fadeOut(1500, function () {
+                $("#ourStory").stop(true, false).fadeOut(1500, function () {
                     document.getElementById("vodkaRaspberry").style.display = "block";
-                    $("#vodkaRaspberry").animate({ top: '0vh', opacity: '1'}, 1500);
+                    $("#vodkaRaspberry").stop(true, false).animate({ top: '0vh', opacity: '1'}, 1500);
                 });
                 //$("#vodkaRaspberry").animate({ top: '0vh', display: 'block'}, 1500);
                 currentSectionIndex++;
