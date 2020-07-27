@@ -7,7 +7,7 @@
             <div class="row" style="margin-right: 0px;">
                 <div class="col"></div>
                 <div class="col section-main-message">
-                    <h1>The Fun Never Stop</h1>
+                    <h1>The Fun Never Stops</h1>
                 </div>
                 <div class="col"></div>
             </div>
@@ -22,8 +22,50 @@
                 <div class="col"></div>
             </div>
         </div>
-
-    </div>
+        <div id="vodkaRaspberry" style="height: 100%; top: 1200px; display: none;">
+            <div style="height:75%; width: 100%">
+                <div class="section-product" style="padding-top: 165px">
+                    <div class="row">
+                        <div class="col">
+                            <h4 class="section-product-tagline" style="left: -20px">Zero Sugar</h4>
+                        </div>
+                        <div class="col">
+                            <div style="margin-top: 120px;">
+                                <img src="~/images/big icons_raspberry.png" align="right" style="width: 60px;" />
+                                <p style="text-align: right; float: left; font-size: 24px; font-weight: bold;">vodka and raspberry with sparkling water</p>
+                            </div>                            
+                        </div>
+                        <div class="col">
+                            <img src="~/images/raspberry-can.png" class="section-product-img"/>
+                        </div>
+                        <div class="col" style="text-align: left;">
+                            <div style="margin-top: 120px;">
+                                <p style="font-size: 24px; font-weight: bold;text-transform: uppercase;">10-pack cans</p>
+                                <button type="button" class="btn btn-outline-dark btn-lg">ADD TO CART</button>
+                            </div>
+                        </div>
+                        <div class="col" >
+                            <h4 class="section-product-tagline" style="right: -20px">Zero Sugar</h4>
+                        </div>
+                    </div>
+                </div>                
+            </div>
+                    <div style="height:25%; width: 100%; background-color: white;">
+                        <div style="bottom: 10px; position: fixed; width: 100%; text-align: center;">
+                            <p style="font-size: 14px; color: black; font-weight:bold;">
+                                A product description is the marketing copy used to describe a product's value proposition to potential customers.
+                            </p>
+                            <div style="display: flex; justify-content: center; flex-wrap: wrap;">
+                                <img src="~/images/small_icons_raspberry_select.png" />
+                                <img src="~/images/small_icons_apple_pear_un-select.png" />
+                                <img src="~/images/small_icons_passionfruit_un-select.png" />
+                                <img src="~/images/small_icons_guava pink_un-select.png" />
+                                <img src="~/images/small_icons_pomegranate_un-select.png" />
+                            </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
 </section>
 <section data-section="1">
     <h2>Hello! I'm the second section!</h2>
@@ -36,6 +78,53 @@
     let sections = document.getElementsByTagName('section');
     // tracks index of current section
     let currentSectionIndex = 0;
+
+    $(document).ready(function () {
+        $("document").one("wheel", function () {
+            if (e.wheelDeltaY > 0) {
+                // wheel up
+                if (currentSectionIndex == 1) {
+                    $("#vodkaRaspberry").animate({ bottom: '100vh', opacity: '1' }, 1500);
+                    $(".section-main-image").animate({ bottom: '0vh', opacity: '1' }, 1500);
+                    $("#ourStory").fadeOut(1000);
+                    currentSectionIndex--;
+                }
+                else if (currentSectionIndex == 2) {
+                    document.getElementById("vodkaRaspberry").style.display = "none";
+                    $("#ourStory").fadeIn(1000);
+                    currentSectionIndex--;
+                }
+
+                /*if (currentSectionIndex == 0) {
+                    $("#section-main-image").slideUp("slow");
+                }
+                else {
+                    sections[currentSectionIndex].className = '';
+                    currentSectionIndex--;
+                    sections[currentSectionIndex].className = 'active';
+                }*/
+
+            } else if (e.wheelDeltaY < 0) {
+                // wheel down
+                if (currentSectionIndex == 0) {
+                    $(".section-main-image").animate({ bottom: '100vh', opacity: '0' }, 1500);
+                    $("#ourStory").fadeIn(1000);
+                    currentSectionIndex++;
+                }
+                else if (currentSectionIndex == 1) {
+                    $("#ourStory").fadeOut(1500, function () {
+                        document.getElementById("vodkaRaspberry").style.display = "block";
+                        $("#vodkaRaspberry").animate({ top: '0vh', opacity: '1' }, 1500);
+                    });
+                    //$("#vodkaRaspberry").animate({ top: '0vh', display: 'block'}, 1500);
+                    currentSectionIndex++;
+                }
+
+                //sections[currentSectionIndex].className = '';
+                //sections[currentSectionIndex].className = 'active';
+            }
+        });
+    });
 
     document.addEventListener('wheel', e => {
         /*
@@ -63,8 +152,18 @@
 
         if (e.wheelDeltaY > 0) {
             // wheel up
-            $(".section-main-image").animate({ bottom: '0vh', opacity: '1' }, 1000);
-            $("#ourStory").fadeOut(1000);
+            if (currentSectionIndex == 1) {
+                $("#vodkaRaspberry").animate({ bottom: '100vh', opacity: '1' }, 1500);
+                $(".section-main-image").animate({ bottom: '0vh', opacity: '1' }, 1500);
+                $("#ourStory").fadeOut(1000);
+                currentSectionIndex--;
+            }
+            else if (currentSectionIndex == 2) {
+                document.getElementById("vodkaRaspberry").style.display = "none";
+                $("#ourStory").fadeIn(1000);
+                currentSectionIndex--;
+            }
+            
             /*if (currentSectionIndex == 0) {
                 $("#section-main-image").slideUp("slow");
             }
@@ -76,8 +175,20 @@
             
         } else if (e.wheelDeltaY < 0) {
             // wheel down
-            $(".section-main-image").animate({ bottom: '100vh', opacity: '0' }, 1000);
-            $("#ourStory").fadeIn(1000);
+            if (currentSectionIndex == 0) {
+                $(".section-main-image").animate({ bottom: '100vh', opacity: '0' }, 1500);
+                $("#ourStory").fadeIn(1000);
+                currentSectionIndex++;
+            }
+            else if (currentSectionIndex == 1) {
+                $("#ourStory").fadeOut(1500, function () {
+                    document.getElementById("vodkaRaspberry").style.display = "block";
+                    $("#vodkaRaspberry").animate({ top: '0vh', opacity: '1'}, 1500);
+                });
+                //$("#vodkaRaspberry").animate({ top: '0vh', display: 'block'}, 1500);
+                currentSectionIndex++;
+            }
+            
             //sections[currentSectionIndex].className = '';
             //sections[currentSectionIndex].className = 'active';
         }

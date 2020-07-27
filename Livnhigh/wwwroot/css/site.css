@@ -29,6 +29,10 @@ h3 {
     font-size: 5vw;
 }
 
+h4 {
+    font-size: 24px;
+}
+
 /********************************************Header Styles****************************************************/
 .header {
     position: absolute;
@@ -115,5 +119,37 @@ section.active {
     text-align: center;
     padding-top: 35vh;
     font-size: 24px;
+}
+
+.section-product-tagline {
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+    text-transform: uppercase;
+    top: calc(50% - 12px);
+    position: fixed;
+    font-weight: bold;
+}
+
+.section-item-discription {
+    text-transform: lowercase;
+}
+
+.section-product-discription {
+    text-transform: uppercase;
+}
+
+.section-product {
+    position: absolute;
+    z-index: 0;
+    width: 98%;
+}
+
+.section-product-img {
+    width: 260px;
+    transition: width 0.3s;
+}
+
+.section-product-img:hover {
+    width: 270px;
 }
 
