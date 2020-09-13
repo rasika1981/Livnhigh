@@ -25,8 +25,9 @@ namespace Livnhigh
         {
             //services.AddControllersWithViews();
             var mvcBuilder = services.AddControllersWithViews();
+            
 
-            #if DEBUG
+#if DEBUG
             mvcBuilder.AddRazorRuntimeCompilation();
             #endif
         }
